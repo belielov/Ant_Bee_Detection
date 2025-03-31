@@ -102,3 +102,8 @@ git push -u origin main
 ## 代码语法说明
 1. `os.path.join` 的作用是自动处理路径分隔符，因为不同操作系统的路径分隔符不同：Windows为反斜杠`\`，Linux/macOS为正斜杠`/`，提高代码跨平台兼容性。
 2. `def`定义下，字符串和代码块均需缩进
+3. 一些操作技巧 ：
+    - 按住`Ctrl`，单击方法，可得到说明文件；
+    - `Ctrl`+`/` 注释该行；
+    - `Shift`+`Enter`，换行；
+4. 查看TensorBoard生成的图片：在Terminal中输入`tensorboard --logdir=logs --port=6007 or xxxx`
