@@ -1,4 +1,4 @@
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, ConcatDataset
 from PIL import Image
 import os
 
@@ -28,6 +28,10 @@ class MyData(Dataset):
     def __len__(self):
         return len(self.img_path)
 
+    def __add__(self,other):
+        """ 实现数据集加法操作 """
+        return ConcatDataset([self, other])
+
 root_dir = "dataset_practice/train"
 ants_image_dir = "ants_image"
 ants_label_dir = "ants_label"
@@ -36,4 +40,4 @@ bees_label_dir = "bees_label"
 ants_dataset = MyData(root_dir, ants_image_dir, ants_label_dir)
 bees_dataset = MyData(root_dir, bees_image_dir, bees_label_dir)
 
-train_dataset = ants_dataset + bees_dataset
+train_dataset = ConcatDataset([ants_dataset, bees_dataset])
