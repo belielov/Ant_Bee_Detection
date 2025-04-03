@@ -106,6 +106,7 @@ git push -u origin main
     - 按住`Ctrl`，单击方法，可得到说明文件；
     - `Ctrl`+`/` 注释该行；
     - `Shift`+`Enter`，换行；
+    - `Ctrl+P`显示函数所需参数
 4. 查看TensorBoard生成的图片：在Terminal中输入`tensorboard --logdir=logs --port=6007 or xxxx`
 5. 去掉 `writer.close()`不会导致代码立即报错，但会产生以下潜在问题：
 
@@ -114,6 +115,7 @@ git push -u origin main
 |数据未完全写入|TensorBoard日志可能部分丢失，尤其是最后一个批次的数据|
 |资源泄漏|文件句柄未释放，长时间运行的程序可能因句柄耗尽导致崩溃 (Too many open files)|
 |日志文件损坏|极端情况下（如程序异常终止），日志文件可能不完整或无法被TensorBoard解析|
+
 
 	
 	
