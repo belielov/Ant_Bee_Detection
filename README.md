@@ -115,8 +115,11 @@ git push -u origin main
 |数据未完全写入|TensorBoard日志可能部分丢失，尤其是最后一个批次的数据|
 |资源泄漏|文件句柄未释放，长时间运行的程序可能因句柄耗尽导致崩溃 (Too many open files)|
 |日志文件损坏|极端情况下（如程序异常终止），日志文件可能不完整或无法被TensorBoard解析|
+6. Tensorboard 中 step 显示不全，在 Terminal 中使用命令`tensorboard --logdir=目录 --samples_per_plugin images=10000`
 
 
+
 	
 	
 	
+
