@@ -129,6 +129,12 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
     best_acc = 0.0
     lrs = []  # 存储每轮的学习率（用于后续可视化）
 
+    # 初始化存储列表
+    train_losses = []
+    val_losses = []
+    train_accs = []
+    val_accs = []
+
     # 开始epoch循环
     for epoch in range(num_epochs):
         print(f'Epoch {epoch}/{num_epochs - 1}')
@@ -180,6 +186,14 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
             epoch_loss = running_loss / dataset_sizes[phase]
             epoch_acc = running_corrects.double() / dataset_sizes[phase]
 
+            # 将当前phase的指标存入列表
+            if phase == 'train':
+                train_losses.append(epoch_loss)
+                train_accs.append(epoch_acc.item())  # 转换为Python数值
+            else:
+                val_losses.append(epoch_loss)
+                val_accs.append(epoch_acc.item())
+
             print(f'{phase} Loss: {epoch_loss:.4f} Acc: {epoch_acc:.4f}')
 
             # 深拷贝最佳模型
@@ -199,6 +213,9 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
 
     # 绘制学习率曲线
     plot_learning_rate(lrs)
+
+    # 绘制损失和准确率曲线
+    plot_loss_accuracy(train_losses, val_losses, train_accs, val_accs)
 
     return model
 
@@ -313,7 +330,7 @@ if __name__ == "__main__":
     )
 
     # ------------------ 执行模型训练 ------------------
-    model = train_model(model, criterion, optimizer, scheduler, num_epochs=100)
+    model = train_model(model, criterion, optimizer, scheduler, num_epochs=30)
 
     # ------------------ 保存最佳模型 ------------------
     torch.save({'model': model, 'state_dict': model.state_dict()}, 'best_model.pth')
