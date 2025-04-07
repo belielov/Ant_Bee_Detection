@@ -34,13 +34,95 @@
 
 ## GitHub相关操作
 ***
+### Git 常用命令速查表
+#### 1. 仓库操作
+| 命令 | 说明 |
+|------|------|
+| `git init` | 初始化本地仓库 |
+| `git clone <url>` | 克隆远程仓库 |
+| `git remote -v` | 查看远程仓库地址 |
+| `git remote add origin <url>` | 添加远程仓库 |
+
+#### 2. 提交修改
+| 命令 | 说明 |
+|------|------|
+| `git status` | 查看文件状态 |
+| `git add <file>` | 添加文件到暂存区 |
+| `git add .` | 添加所有修改 |
+| `git commit -m "msg"` | 提交更改 |
+| `git commit --amend` | 修改最后一次提交 |
+
+#### 3. 分支管理
+| 命令 | 说明 |
+|------|------|
+| `git branch` | 查看分支 |
+| `git branch <name>` | 创建分支 |
+| `git checkout <branch>` | 切换分支 |
+| `git checkout -b <branch>` | 创建并切换分支 |
+| `git merge <branch>` | 合并分支 |
+| `git branch -d <branch>` | 删除分支 |
+
+#### 4. 同步推送
+| 命令 | 说明 |
+|------|------|
+| `git pull` | 拉取远程更新 |
+| `git push` | 推送本地提交 |
+| `git fetch` | 获取远程更新 |
+
+#### 5. 撤销操作
+| 命令 | 说明 |
+|------|------|
+| `git restore <file>` | 撤销工作区修改 |
+| `git restore --staged <file>` | 取消暂存 |
+| `git reset --hard HEAD^` | 回退到上一版本 |
+
+#### 6. 查看信息
+| 命令 | 说明 |
+|------|------|
+| `git log` | 查看提交历史 |
+| `git log --oneline` | 简洁历史 |
+| `git diff` | 查看差异 |
+
+#### 7. 标签管理
+| 命令 | 说明 |
+|------|------|
+| `git tag` | 查看标签 |
+| `git tag v1.0` | 创建标签 |
+| `git push --tags` | 推送标签 |
+
+#### 8. 暂存修改
+| 命令 | 说明 |
+|------|------|
+| `git stash` | 暂存当前修改 |
+| `git stash pop` | 恢复暂存修改 |
+
+#### 9. 配置信息
+| 命令 | 说明 |
+|------|------|
+| `git config --global user.name "name"` | 设置用户名 |
+| `git config --global user.email "email"` | 设置邮箱 |
+
+#### 常用场景
+- 首次提交
+```bash
+git init  
+git add .  
+git commit -m "Initial commit"  
+git remote add origin <URL>  
+git push -u origin main  
+```
+- 撤销最后一次提交
+```bash
+git reset --soft HEAD^  # 保留修改  
+git reset --hard HEAD^  # 彻底丢弃  
+```
+
 ### 通过本地操作让GitHub同步删除已移除的文件
 
 1. 首先，在本地工作目录中确认该文件已经被物理删除或者不再需要保留。
 2. 执行以下命令将其标记为被删除状态并提交更改到版本库。
 
-```
-Bash
+```bash
 git rm read_data.py.bak
 ```
 
@@ -48,8 +130,7 @@ git rm read_data.py.bak
 
 3. 提交此次变更至本地存储库，附带描述信息以便后续追踪记录原因。
 
-```
-Bash
+```Bash
 git commit -m "Remove unused backup file read_data.py.bak"
 ```
 
@@ -57,8 +138,7 @@ git commit -m "Remove unused backup file read_data.py.bak"
 
 4. 将最新的修改推送到远端服务器上覆盖原有分支内容。
 
-```
-Bash
+```Bash
 git push origin main
 ```
 
@@ -74,8 +154,7 @@ git push origin main
 
 如果尚未初始化本地项目的 Git 仓库，则需要运行以下命令来完成初始化：
 
-```
-Bash
+```Bash
 git init
 ```
 
@@ -85,8 +164,7 @@ git init
 
 假设已经有一个现有的 GitHub 项目，可以通过以下命令将其设置为远程存储库：
 
-```
-Bash
+```Bash
 git remote add origin https://github.com/<username>/<repository>.git
 ```
 
@@ -98,22 +176,19 @@ git remote add origin https://github.com/<username>/<repository>.git
 
 - **查看状态**: 查看哪些文件发生了改变以及处于何种阶段。
 
-  ```
-  Bash
+  ```Bash
   git status
   ```
 
 - **暂存更改**: 将所有已修改或者新建好的文件加入索引区域(即准备提交的状态卡)。
 
-  ```
-  Bash
+  ```Bash
   git add .
   ```
 
 - **提交消息**: 提交所作的所有更动，并附带一条描述性的日志记录下来。
 
-  ```
-  Bash
+  ```Bash
   git commit -m "Add new changes including README update and additional file"
   ```
 
@@ -121,8 +196,7 @@ git remote add origin https://github.com/<username>/<repository>.git
 
 最后一步就是把刚才所做的工作成果推送回云端上的主干线上去吧！如果是第一次推送的话，记得指定好对应的branch name哦～比如说master或者是main之类的，默认情况下应该是后者啦～
 
-```
-Bash
+```Bash
 git push -u origin main
 ```
 
