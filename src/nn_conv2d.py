@@ -7,7 +7,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 # 加载CIFAR10测试集
 dataset = torchvision.datasets.CIFAR10(
-    root="./datasets",
+		root="./datasets",
     train=False,
     transform=torchvision.transforms.ToTensor(),
     download=True
