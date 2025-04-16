@@ -428,8 +428,8 @@ scheduler = LinearLR(optimizer, start_factor=0.01, total_iters=5)  # 前5轮从 
 源代码的训练结果如下所示：
 
 <div align = "center">
-<img src="learning_rate_curve.png" width="45%"/>
-<img src="loss_accuracy_curve.png" width="46%"/>
+<img src="imgs/learning_rate_curve.png" width="45%"/>
+<img src="imgs/loss_accuracy_curve.png" width="46%"/>
 </div>
 
 ### 1. 数据增强优化
@@ -447,8 +447,8 @@ scheduler = LinearLR(optimizer, start_factor=0.01, total_iters=5)  # 前5轮从 
 ```
 - **运行结果**：
 <div align="center">
-<img src="learning_rate_curve_r1.png" width="45%"/>
-<img src="loss_accuracy_curve_r1.png" width="46%"/>
+<img src="imgs/learning_rate_curve_r1.png" width="45%"/>
+<img src="imgs/loss_accuracy_curve_r1.png" width="46%"/>
 </div>
 
 ***
@@ -491,8 +491,8 @@ model = nn.Sequential(
   - 添加`Dropout(0.5)`防止过拟合
 - **运行结果**：
 <div align="center">
-<img src="learning_rate_curve_r2.png" width="45%"/>
-<img src="loss_accuracy_curve_r2.png" width="46%"/>
+<img src="imgs/learning_rate_curve_r2.png" width="45%"/>
+<img src="imgs/loss_accuracy_curve_r2.png" width="46%"/>
 </div>
 
 ***
@@ -513,8 +513,8 @@ batch_size = 32  # 原为4，显著提升训练效率
 ```
 - **运行结果**：
 <div align="center">
-<img src="learning_rate_curve_r3.png" width="45%"/>
-<img src="loss_accuracy_curve_r3.png" width="46%"/>
+<img src="imgs/learning_rate_curve_r3.png" width="45%"/>
+<img src="imgs/loss_accuracy_curve_r3.png" width="46%"/>
 </div>
 
 ***
@@ -531,14 +531,14 @@ model = model.to(device)
 ```
 - **运行结果（SGD + StepLR）**：
 <div align="center">
-<img src="learning_rate_curve_v2.png" width="45%"/>
-<img src="loss_accuracy_curve_v2.png" width="46%"/>
+<img src="imgs/learning_rate_curve_v2.png" width="45%"/>
+<img src="imgs/loss_accuracy_curve_v2.png" width="46%"/>
 </div>
 
 - **运行结果（AdamW + CosineAnnealingLR）**：
 <div align="center">
-<img src="learning_rate_curve_v4.png" width="44%"/>
-<img src="loss_accuracy_curve_v4.png" width="46%"/>
+<img src="imgs/learning_rate_curve_v4.png" width="44%"/>
+<img src="imgs/loss_accuracy_curve_v4.png" width="46%"/>
 </div>
 
 **迁移学习中验证准确率更高的本质是**：
@@ -547,24 +547,24 @@ model = model.to(device)
 ***
 ## 一些操作的可视化
 <div align="center">
-<img src="imageData.png" width="45%"/>
-<img src="Sigmoid.png" width="45%"/>
+<img src="imgs/imageData.png" width="45%"/>
+<img src="imgs/Sigmoid.png" width="45%"/>
 <br>
 非线性激活之 Sigmoid
 </div>
 
 ***
 <div align="center">
-<img src="imageData.png" width="45%"/>
-<img src="ReLU.png" width="45%"/>
+<img src="imgs/imageData.png" width="45%"/>
+<img src="imgs/ReLU.png" width="45%"/>
 <br>
 非线性激活之 ReLU
 </div>
 
 ***
 <div align="center">
-<img src="imageData.png" width="45%"/>
-<img src="MaxPool.png" width="45%"/>
+<img src="imgs/imageData.png" width="45%"/>
+<img src="imgs/MaxPool.png" width="45%"/>
 <br>
 最大池化
 </div>
